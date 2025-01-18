@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -51,7 +55,7 @@ jobs:
     # Step 8: Build Docker image
     - name: Build Docker image
       run: |
-        docker build -t dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} -f project/DockerFile .
+        docker build -t dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} -f DockerFile .
         docker tag dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} dockerbabuli/bikrantsahoo-nodejsapp:latest
 
     # Step 9: Push Docker image
