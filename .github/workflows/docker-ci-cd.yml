@@ -13,20 +13,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Checkout code
     - name: Checkout code
       uses: actions/checkout@v3
 
+    # Step 2: Set up Node.js (if using Node.js for testing)
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    # Step 3: Install dependencies (for tests)
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Run tests
+    - name: Run tests
+      run: npm test
+
+    # Step 5: Set up CodeQL for code scanning (Security checks)
+    - name: Set up CodeQL for code scanning
+      uses: github/codeql-action/init@v2
+      with:
+        languages: 'javascript'
+
+    # Step 6: Perform CodeQL analysis
+    - name: Run CodeQL analysis
+      uses: github/codeql-action/analyze@v2
+
+    # Step 7: Log in to Docker Hub
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    # Step 8: Build Docker image
     - name: Build Docker image
       run: |
-        docker build -t dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} -f DockerFile .
+        docker build -t dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} -f project/DockerFile .
         docker tag dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} dockerbabuli/bikrantsahoo-nodejsapp:latest
 
+    # Step 9: Push Docker image
     - name: Push Docker image
       run: |
         docker push dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }}
