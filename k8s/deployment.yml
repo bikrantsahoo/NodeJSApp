@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bikrantsahoo-nodejsapp
+spec:
+  replicas: 1  # Number of pods to run
+  selector:
+    matchLabels:
+      app: bikrantsahoo-nodejsapp
+  template:
+    metadata:
+      labels:
+        app: bikrantsahoo-nodejsapp
+    spec:
+      containers:
+      - name: bikrantsahoo-nodejsapp
+        image: bikrantsahoo-nodejsapp:latest  # Replace with your image name
+        ports:
+        - containerPort: 3000
