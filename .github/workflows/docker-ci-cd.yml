@@ -24,11 +24,10 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t your-dockerhub-username/bikrantsahoo-nodejsapp:${{ github.sha }} .
-        docker tag your-dockerhub-username/bikrantsahoo-nodejsapp:${{ github.sha }} your-dockerhub-username/bikrantsahoo-nodejsapp:latest
+        docker build -t dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} .
+        docker tag dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} dockerbabuli/bikrantsahoo-nodejsapp:latest
 
     - name: Push Docker image
       run: |
-        docker push your-dockerhub-username/bikrantsahoo-nodejsapp:${{ github.sha }}
-        docker push your-dockerhub-username/bikrantsahoo-nodejsapp:latest
-
+        docker push dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }}
+        docker push dockerbabuli/bikrantsahoo-nodejsapp:latest
