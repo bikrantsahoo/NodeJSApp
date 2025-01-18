@@ -43,7 +43,7 @@ jobs:
 
     # Step 6: Perform CodeQL analysis
     - name: Run CodeQL analysis
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@v3
 
     # Step 7: Log in to Docker Hub
     - name: Log in to Docker Hub
