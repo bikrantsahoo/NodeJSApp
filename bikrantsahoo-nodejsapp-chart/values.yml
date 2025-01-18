@@ -1,0 +1,12 @@
+replicaCount: 1
+
+image:
+  repository: dockerbabuli/bikrantsahoo-nodejsapp
+  pullPolicy: Always
+  tag: latest
+
+service:
+  name: bikrantsahoo-nodejsapp
+  type: LoadBalancer
+  port: 80
+  targetPort: 3000
