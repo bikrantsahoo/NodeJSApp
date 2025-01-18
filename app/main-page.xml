@@ -1,0 +1,6 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Welcome" icon="" />
+    <StackLayout class="p-4">
+        <Label text="Hello Bikrant" class="text-3xl text-center text-blue-600 font-bold p-4" />
+    </StackLayout>
+</Page>
