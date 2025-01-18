@@ -24,7 +24,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} -f project/DockerFile .
+        docker build -t dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} -f DockerFile .
         docker tag dockerbabuli/bikrantsahoo-nodejsapp:${{ github.sha }} dockerbabuli/bikrantsahoo-nodejsapp:latest
 
     - name: Push Docker image
