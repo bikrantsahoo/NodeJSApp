@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "jest"  // <-- This tells npm to run Jest when you run npm test
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.18.2"
