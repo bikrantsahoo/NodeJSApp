@@ -17,12 +17,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout code
+    # Step 1: Checkout codee
     - name: Checkout code
       uses: actions/checkout@v3
 
     # Step 2: Set up Node.js (if using Node.js for testing)
-    - name: Set up Node.js
+    - name: Set up Node.js for build
       uses: actions/setup-node@v3
       with:
         node-version: '14'
